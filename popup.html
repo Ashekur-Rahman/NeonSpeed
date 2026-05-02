@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NeonSpeed</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="aurora">
+    <span class="blob b1"></span>
+    <span class="blob b2"></span>
+    <span class="blob b3"></span>
+  </div>
+
+  <div class="glass app">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">NEON<span class="logo-accent">SPEED</span></span>
+      </div>
+      <div class="header-actions">
+        <button class="icon-btn" id="pause-btn" title="Pause monitoring"><span id="pause-icon">⏸</span></button>
+        <div class="theme-switch" role="tablist">
+          <button class="theme-opt" data-theme="light"  title="Light">☀</button>
+          <button class="theme-opt" data-theme="system" title="System">◐</button>
+          <button class="theme-opt" data-theme="dark"   title="Dark">☾</button>
+        </div>
+        <button class="icon-btn" id="settings-btn" title="Settings">⚙</button>
+      </div>
+    </header>
+
+    <div class="live-row">
+      <span class="dot" id="live-dot"></span>
+      <span class="live-label" id="live-label">LIVE</span>
+      <span class="live-meta"  id="live-meta">streaming</span>
+    </div>
+
+    <!-- Speed Cards -->
+    <section class="cards">
+      <div class="speed-card down">
+        <div class="card-head">
+          <span class="card-title"><span class="arrow">▼</span> DOWNLOAD</span>
+          <span class="session" id="down-total">0 B</span>
+        </div>
+        <div class="speed-row">
+          <span class="speed-value" id="down-speed">0.00</span>
+          <span class="speed-unit"  id="down-unit">Mbps</span>
+        </div>
+        <div class="bar"><div class="bar-fill down-fill" id="down-fill"></div></div>
+      </div>
+
+      <div class="speed-card up">
+        <div class="card-head">
+          <span class="card-title"><span class="arrow">▲</span> UPLOAD</span>
+          <span class="session" id="up-total">0 B</span>
+        </div>
+        <div class="speed-row">
+          <span class="speed-value" id="up-speed">0.00</span>
+          <span class="speed-unit"  id="up-unit">Mbps</span>
+        </div>
+        <div class="bar"><div class="bar-fill up-fill" id="up-fill"></div></div>
+      </div>
+    </section>
+
+    <!-- Combined Graph -->
+    <section class="graph-wrap">
+      <div class="graph-head">
+        <span class="graph-title">Last 60s</span>
+        <div class="legend">
+          <span class="lg lg-down"><i></i>Down</span>
+          <span class="lg lg-up"><i></i>Up</span>
+          <span class="graph-peak" id="graph-peak">peak —</span>
+        </div>
+      </div>
+      <!-- Y-axis labels sit left of canvas, canvas takes remaining width -->
+      <div class="graph-container">
+        <div class="y-axis" id="y-axis">
+          <!-- populated by JS -->
+        </div>
+        <canvas id="graph-main" height="130"></canvas>
+      </div>
+      <div class="x-labels">
+        <span>−60s</span>
+        <span>−45s</span>
+        <span>−30s</span>
+        <span>−15s</span>
+        <span>now</span>
+      </div>
+    </section>
+
+    <!-- Totals -->
+    <section class="totals">
+      <div class="total-block">
+        <span class="t-label">TOTAL DATA</span>
+        <span class="t-value" id="total-data">0 B</span>
+      </div>
+      <button class="ghost-btn" id="export-btn">⤓ CSV</button>
+      <button class="ghost-btn danger" id="reset-btn">↺ RESET</button>
+    </section>
+
+    <!-- Settings -->
+    <section class="settings" id="settings-panel" hidden>
+      <h3>Settings</h3>
+      <label class="row">
+        <span>Display unit</span>
+        <select id="set-unit">
+          <option value="bits">Mbps (bits)</option>
+          <option value="bytes">MB/s (bytes)</option>
+        </select>
+      </label>
+      <label class="row">
+        <span>Gauge max <em id="max-display">100 Mbps</em></span>
+        <input type="range" id="set-max" min="10" max="1000" step="10" value="100" />
+      </label>
+      <label class="row">
+        <span>Show toolbar badge</span>
+        <input type="checkbox" id="set-badge" />
+      </label>
+      <label class="row">
+        <span>Badge metric</span>
+        <select id="set-badge-metric">
+          <option value="down">Download</option>
+          <option value="up">Upload</option>
+          <option value="sum">Combined</option>
+        </select>
+      </label>
+      <label class="row">
+        <span>Slow-speed alert</span>
+        <input type="checkbox" id="set-alert" />
+      </label>
+      <label class="row indent" id="alert-threshold-row">
+        <span>Notify below <em id="th-display">1 Mbps</em> for 10s</span>
+        <input type="range" id="set-threshold" min="1" max="50" step="1" value="1" />
+      </label>
+    </section>
+
+    <footer class="footer">
+      <span class="ticker" id="ticker">connecting…</span>
+      <span class="version">v7.0</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
