@@ -8,9 +8,21 @@
 
 ---
 
+## 🚀 Installation (Developer Mode)
+
+1. Download or clone this repository
+2. Open Chrome and go to `chrome://extensions`
+3. Enable **Developer mode** (toggle in top right)
+4. Click **Load unpacked**
+5. Select the `NeonSpeed` folder
+6. The NeonSpeed icon appears in your toolbar — pin it for easy access
+
+---
 ## 📸 Screenshot
 
-> *(Add your popup screenshot here)*
+> <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/e5020f4a-6f17-4ced-9479-a342e8d8d0b4" /> <img width="200" height="300" alt="image" src="https://github.com/user-attachments/assets/5feb4668-578b-44cb-845c-02b8214168d5" />
+
+
 
 ---
 
@@ -120,20 +132,11 @@ Display uses **EMA smoothing** (`α = 0.35`) to reduce jitter without hiding rea
 
 ---
 
-## 🚀 Installation (Developer Mode)
 
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions`
-3. Enable **Developer mode** (toggle in top right)
-4. Click **Load unpacked**
-5. Select the `NeonSpeed` folder
-6. The NeonSpeed icon appears in your toolbar — pin it for easy access
-
----
 
 ## 🏪 Chrome Web Store
 
-> *(Add your store link here once published)*
+> *(Nope!)*
 
 ---
 
