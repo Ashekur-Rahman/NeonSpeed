@@ -126,7 +126,7 @@ Display uses **EMA smoothing** (`α = 0.35`) to reduce jitter without hiding rea
 2. Open Chrome and go to `chrome://extensions`
 3. Enable **Developer mode** (toggle in top right)
 4. Click **Load unpacked**
-5. Select the `neonspeed_fixed/` folder
+5. Select the `NeonSpeed` folder
 6. The NeonSpeed icon appears in your toolbar — pin it for easy access
 
 ---
